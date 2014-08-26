@@ -1,0 +1,9 @@
+{
+  "sitename" : "http://picosec.org:8080",
+  "host" : "picosec.org",
+  "markdownUrl" : "http://www.plantuml.com/plantuml/img",
+  "fileLocation" : "/public",
+  "username" : "admin",
+  "password" : "pico123",
+  "port" : 8080
+}
