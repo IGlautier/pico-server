@@ -36,13 +36,28 @@ app.get("*", function(req,res) {
 	console.log("Routing a request for " + req.params[0]);
 	fs.stat(path.join(__dirname, 'public', req.params[0] + ".md"), function(err, stats) {
 		if (err) {
-			console.log(err);
-			res.render("index", {"name":"503", marked:marked, "content":"", "error":"Internal Server Error"});
+			if (err.code == "ENOENT") fs.stat(path.join(__dirname, 'public', req.params[0], "index.md"), function(err, stats) {
+				if (err) {
+					console.log(err);
+					res.render("index", {"name":"403", marked:marked, "content":"", "error":"Not Found"});
+				}
+				else {
+					if(stats.isFile()) parser.parse(path.join(req.params[0], "index.md"), function(content) {
+						res.render("index", content);
+					});
+					else res.render("index", {"name":"404", marked:marked, "content":"", "error":"Not Found"});
+				}
+			});
+			else {
+				console.log(err);
+				res.render("index", {"name":"503", marked:marked, "content":"", "error":"Internal Server Error"});
+			}
 		}
 		else {
 			if(stats.isFile()) parser.parse(req.params[0] + ".md", function(content) {
 				res.render("index", content);
 			});
+			else res.render("index", {"name":"404", marked:marked, "content":"", "error":"Not Found"});
 		}
 	});
 });
