@@ -1,7 +1,5 @@
 var  fs = require("fs"), marked = require("marked"), path = require("path"), settings = require("./settings.json");
 
-
-
 function parse(filename, callback) {
 	fs.readFile(path.join(__dirname, settings.fileLocation, filename), "utf8", function(err,data) {
 		if (err) {
