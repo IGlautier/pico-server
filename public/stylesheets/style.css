@@ -289,4 +289,19 @@ width: 10px;
 height: 10px;
 border: 1px solid #000;
 color: transparent;
+background: #00FF00;
+}
+
+.deleter {
+float: right;
+width: 10px;
+height: 10px;
+border: 1px solid #000;
+color: transparent;
+background: #FF0000;
+}
+
+.section {
+border-bottom: 2px solid #000;
+clear: both;
 }
