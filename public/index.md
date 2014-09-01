@@ -84,3 +84,7 @@ if there are request for other
 IP in any individual page in this wiki is owned by the original committer, unless stated otherwise.
 
 Updated at 10:44 05/08/2014
+
+
+<div class="uml">Bob->Alice : hello</div>
+<div class="GViz">digraph{A->B->C->A}</div>

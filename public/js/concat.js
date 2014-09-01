@@ -30,7 +30,7 @@ function insertLinks(content, callback, path) {
 
 	var links = content.getElementsByTagName('a');
 	for (var i = 0; i < links.length; i++) {
-		if (links[i].hostname == 'localhost') {
+		if (links[i].hostname == settings.concat.host) {
 			links[i].href = 'http://' + links[i].host + path + links[i].pathname;
 			
 			var expander = document.createElement('div');
